@@ -1,9 +1,11 @@
-# Optimus for SMF 2.0.x
+# Ohara Optimus for SMF 2.1.x
 
-This mod might help you solve some problems associated with indexing of your forum by search engines.
+In compliance to the [Artistic License 2.0](http://opensource.org/licenses/artistic-license-2.0) this fork has been renamed to Ohara Optimus.
 
-Модификация упрощает оптимизацию страниц форума SMF для индексации в поисковиках.
+A list of introduced changes:
 
-This work is licensed under the [Artistic License 2.0](http://opensource.org/licenses/artistic-license-2.0)
+- Change folder structure to match SMF's
+- Usage of [Ohara library] (https://github.com/MissAllSunday/Ohara)
+- Reduce file edits.
 
-P.S. See develop branch for Optimus 2.0 beta (works with SMF 2.1 beta)
+Link to the original source: https://github.com/dragomano/Optimus
