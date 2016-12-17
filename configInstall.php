@@ -1,32 +1,30 @@
 <?php
+/**
+ * @package Ohara Optimus
+ * @license http://opensource.org/licenses/artistic-license-2.0 Artistic-2.0
+ */
 
 if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF'))
 	require_once(dirname(__FILE__) . '/SSI.php');
-elseif(!defined('SMF'))
-	die('<b>Error:</b> Cannot install - please verify that you put this file in the same place as SMF\'s index.php and SSI.php files.');
+
+else if(!defined('SMF'))
+	die('<b>Error:</b> Cannot install - please verify you put this in the same place as SMF\'s index.php and SSI.php files.');
 
 if ((SMF == 'SSI') && !$user_info['is_admin'])
-	die('Admin privileges required.');
+	die('Admin priveleges required.');
 
-// Hooks
-$hooks = array(
-	'integrate_pre_include'   => '$sourcedir/Subs-Optimus.php',
-	'integrate_admin_include' => '$sourcedir/Admin-Optimus.php',
-	'integrate_load_theme'    => 'optimus_home',
-	'integrate_admin_areas'   => 'optimus_admin_areas',
-	'integrate_menu_buttons'  => 'optimus_operations',
-	'integrate_buffer'        => 'optimus_buffer',
+// Prepare and insert this mod's config array.
+$_config = array(
+	'_availableHooks' => array(
+		'buffer' => 'integrate_buffer',
+		'siteMap' => 'integrate_create_topic',
+	),
 );
 
+// All good.
+updateSettings(array('_configActivityBar' => json_encode($_config)));
 
-$call = 'add_integration_function';
-
-foreach ($hooks as $hook => $function)
-	$call($hook, $function);
-
-$call('integrate_create_topic', 'optimus_sitemap');
-
-// Some settings
+// Default mod settings
 $newSettings = array(
 	'optimus_portal_compat'      => 0,
 	'optimus_forum_index'        => $smcFunc['substr']($txt['forum_index'], 7),
@@ -39,13 +37,11 @@ $newSettings = array(
 );
 
 $base = array();
-foreach ($newSettings as $setting => $value) {
+foreach ($newSettings as $setting => $value)
 	if (!isset($modSettings[$setting]))
 		$base[$setting] = $value;
-}
+
 updateSettings($base);
 
 if (SMF == 'SSI')
-	echo 'Database changes are complete! Please wait...';
-
-?>
+	echo 'Database changes are complete!';
