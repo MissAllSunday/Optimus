@@ -1,0 +1,6 @@
+{
+	"name": "suki/optimus",
+	"require": {
+		"suki/ohara": "dev-master"
+	}
+}

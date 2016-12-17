@@ -18,6 +18,7 @@ $hooks = array(
 	'integrate_buffer'        => 'optimus_buffer',
 );
 
+
 $call = 'add_integration_function';
 
 foreach ($hooks as $hook => $function)
