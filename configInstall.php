@@ -35,7 +35,7 @@ $newSettings = array(
 	'optimus_sitemap_topic_size' => 1,
 	'optimus_meta'               => '',
 	'optimus_count_code_css'     => '.copyright a>img {opacity: 0.3} .copyright a:hover>img {opacity: 1.0} #footerarea ul li.copyright {line-height: normal; padding: 0}',
-	'optimus_ignored_actions'    => 'admin,bookmarks,credits,helpadmin,pm,printpage',
+	'optimus_ignored_actions'    => 'admin,bookmarks,credits,helpadmin,pm,printpage,dlattach,likes,uploadAttach,viewsmfile,mlhttp,.xml,breezeajax,breezecover,breezemood',
 );
 
 $base = array();
