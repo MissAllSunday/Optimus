@@ -24,4 +24,28 @@ class Optimus extends \Suki\Ohara
 {
 	public $name = __CLASS__;
 
+	public function __construct()
+	{
+		$this->setRegistry();
+	}
+
+	public function addAdmin(&$admin_areas)
+	{
+		return;
+	}
+
+	public function addBuffer(&$buffer)
+	{
+		return;
+	}
+
+	public function addOperations(&$dummy)
+	{
+		return;
+	}
+
+	public function addSiteMap()
+	{
+		return;
+	}
 }
