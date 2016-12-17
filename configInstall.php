@@ -31,9 +31,9 @@ $newSettings = array(
 	'optimus_portal_compat'      => 0,
 	'optimus_forum_index'        => $smcFunc['substr']($txt['forum_index'], 7),
 	'optimus_description'        => $context['forum_name'],
-	'optimus_templates'          => 'a:0:{}',
+	'optimus_templates'          => '',
 	'optimus_sitemap_topic_size' => 1,
-	'optimus_meta'               => 'a:0:{}',
+	'optimus_meta'               => '',
 	'optimus_count_code_css'     => '.copyright a>img {opacity: 0.3} .copyright a:hover>img {opacity: 1.0} #footerarea ul li.copyright {line-height: normal; padding: 0}',
 	'optimus_ignored_actions'    => 'admin,bookmarks,credits,helpadmin,pm,printpage',
 );
