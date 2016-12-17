@@ -18,6 +18,8 @@ $_config = array(
 	'_availableHooks' => array(
 		'buffer' => 'integrate_buffer',
 		'siteMap' => 'integrate_create_topic',
+		'admin' => 'integrate_admin_areas',
+		'operations' => 'integrate_menu_buttons',
 	),
 );
 
