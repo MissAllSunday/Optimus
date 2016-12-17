@@ -6,27 +6,28 @@
 	<version>1.9</version>
 	<type>modification</type>
 
-	<install for="2.0 - 2.0.99">
-		<readme parsebbc="true" lang="russian-utf8">readme/russian-utf8.txt</readme>
-		<readme parsebbc="true" lang="russian">readme/russian.txt</readme>
+	<install for="2.1 Beta 3, 2.1 Beta 4, 2.1 RC 1, 2.1 RC 2, 2.1 - 2.1.99">
 		<readme parsebbc="true">readme/readme.txt</readme>
+		<license type="inline" parsebbc="false">
+Artistic License 2.0
+http://opensource.org/licenses/artistic-license-2.0
+		</license>
+		<code>configInstall.php</code>
+		<hook function="Optimus::runTimeHooks" hook="integrate_load_theme" file="$sourcedir/Optimus.php" object="true"></hook>
+		<require-dir name="Sources/ohara" destination="$sourcedir">Source library</require-dir>
+		<require-file name="Sources/Optimus.php" destination="$sourcedir">The file that handles everything</require-file>
 		<require-file name="engine/Admin-Optimus.php" destination="$sourcedir">Core file</require-file>
-		<require-file name="engine/Subs-Optimus.php" destination="$sourcedir">Core file</require-file>
-		<require-file name="default/Optimus.template.php" destination="$themedir">Template file</require-file>
-		<require-dir name="default/languages" destination="$themedir">Language files</require-dir>
-		<require-dir name="default/css" destination="$themedir">CSS files</require-dir>
-		<database>install.php</database>
+		<require-dir name="vendor" destination="$boarddir">vendor folder</require-dir>
+		<require-dir name="Themes" destination="$boarddir">Theme files</require-dir>
 		<redirect url="?action=admin;area=optimus" timeout="1000" />
 	</install>
 
-	<uninstall for="2.0 - 2.0.99">
-		<code>uninstall.php</code>
-		<remove-dir name="$languagedir/Optimus" />
+	<uninstall for="2.1 Beta 3, 2.1 Beta 4, 2.1 RC 1, 2.1 RC 2, 2.1 - 2.1.99">
+		<readme type="inline">This will uninstall Ohara Optimus mod. Thank you for using this mod.</readme>
+		<hook function="Optimus::runTimeHooks" hook="integrate_load_theme" file="$sourcedir/Optimus.php" object="true" reverse="true"></hook>
 		<remove-file name="$themedir/css/optimus.css" />
 		<remove-file name="$themedir/css/sitemap.xsl" />
 		<remove-file name="$themedir/Optimus.template.php" />
-		<remove-file name="$sourcedir/Admin-Optimus.php" />
-		<remove-file name="$sourcedir/Subs-Optimus.php" />
 		<redirect url="?action=admin;area=packages;sa=browse" timeout="1000" />
 	</uninstall>
 
